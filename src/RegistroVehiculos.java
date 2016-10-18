@@ -5,6 +5,7 @@ public class RegistroVehiculos {
     private Set<Coche> coches = new HashSet<>();
 
     public void registrarVehiculo(Coche coche) {
+        //registramos vehiculo, para ello verificamos que no haya sido registrado antes.
         if (!coches.contains(coche)){
             coches.add(coche);
             System.out.println("Coche creado");
@@ -16,8 +17,8 @@ public class RegistroVehiculos {
     }
 
     // Optional<Coche> es una nueva funcionalidad de Java 8 para evitar trabajar con null
-    // Lo puedes omitir si trabajas con Java 7
     public Optional<Coche> obtenerVehiculo(String matricula) {
+        //creamos un null para despues colocar en el el coche.
         Coche r = null;
         for (Coche c: coches){
             if (c.getMatricula().equals(matricula)){
@@ -33,6 +34,7 @@ public class RegistroVehiculos {
     }
 
     public void eliminarVehiculo(String matricula) {
+        //creamos un null para despues colocar en el el coche.
         Coche a = null;
         for (Coche c: coches){
             if (c.getMatricula().equals(matricula)){
@@ -51,6 +53,7 @@ public class RegistroVehiculos {
     }
 
     public List<Coche> obtenerTodos() {
+        //creamos un ArrayList nuevo para que nos retorne todos los coches.
         return new ArrayList<Coche>(coches);
     }
 }
